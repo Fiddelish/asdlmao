@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kometenhalmstad</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<style>
+    /* Container for the order form */
+            .order-form-container {
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+    
+            /* Input fields and labels */
+            label {
+                display: block;
+                margin: 10px 0 5px;
+                font-weight: bold;
+                color: #555;
+            }
+    
+            input[type="text"], input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+    
+            /* Button styles */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 25px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 100%;
+                transition: background-color 0.3s;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+    
+            /* Success message */
+            #success-message {
+                color: green;
+                text-align: center;
+                display: none;
+                margin-top: 20px;
+            }
+    
+            /* Menu section styling */
+            #weekly-menu {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+    
+            #today-menu ul {
+                list-style-type: none;
+                padding: 0;
+            }
+    
+            #today-menu li {
+                font-size: 18px;
+                color: #333;
+                margin-bottom: 10px;
+            }
+    
+            /* Styling for the input fields of food options */
+            .food-option {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+    
+            .food-option input {
+                width: 70px;
+            }
+    
+            /* Responsive adjustments */
+            @media (max-width: 600px) {
+                .order-form-container {
+                    padding: 20px;
+                    width: 100%;
+                }
+    
+                button {
+                    width: 100%;
+                }
+            }
+        </style>
+
+<header classname="mainheader">
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="https://docs.google.com/viewerng/viewer?url=http://kometen-halmstad.se/onewebmedia/Matsedlar%25202020/meny%2520v48-49-9.pdf" target="_blank">
+                    Veckomeny
+                </a>
+            </li>
+            <div class="headerpic">
+                <div classname="fnxlogo">
+                <img src="/Untitled.jpg" alt="HeaderImage" /></div>
+            </div>
+            
+            <li class="nav-item"><a href="/login.html">Företag</a></li>
+        </ul>
+    </nav>
+
+</header>
+<body>
+    <div class="content-wrapper">
+    <section id="weekly-menu">
+        <h2>Dagens</h2>
+        <div id="today-menu">
+            <h3 id="date-header">Måndag 25/11</h3> 
+            <ul id="menu-items"></ul>
+        </div>
+    </section>
+
+    <div class="order-form-container">
+        <h2>Order Form</h2>
+        <form id="order-form">
+            <label for="company-name">Company Name:</label>
+            <input type="text" id="company-name" required>
+
+            <!-- matval -->
+            <h3>Food Options:</h3>
+            <div id="food-options-container"></div> 
+            
+            <button type="submit">Submit Order</button>
+        </form>
+
+        <p id="success-message" style="color: green; display: none;">Order submitted successfully!</p>
+    </div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+    <!-- EmailJS script inclusion -->
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+ <script src="scripts.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your public key
+        (function(){
+            emailjs.init("_DXcnunEY5yceXVV_"); // Replace with your actual public key
+        })();
+    </script>
+
+    <script>
+        // Initialize form submission
+        document.getElementById("order-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const companyName = document.getElementById("company-name").value;
+            const food1Quantity = document.getElementById("food1").value || 0;
+            const food2Quantity = document.getElementById("food2").value || 0;
+            const food3Quantity = document.getElementById("food3").value || 0;
+
+            const emailParams = {
+                to_email: "your-email@example.com", // Replace with your recipient email
+                from_name: companyName,
+                message: `Order Details:\n\nCompany Name: ${companyName}\nOption 1 (Persiljebiff): ${food1Quantity}\nOption 2 (Panerad Sejfilé): ${food2Quantity}\nOption 3 (Kycklingsallad): ${food3Quantity}`,
+            };
+
+            // Send email via EmailJS
+            emailjs.send("service_zcsk43n", "template_hx8u53e", emailParams)
+                .then(function(response) {
+                    console.log("Email sent successfully", response);
+                    alert("Order sent successfully!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to send email", error);
+                    alert("An error occurred while sending the email.");
+                });
+        });
+    </script>
+</body>
+</html>

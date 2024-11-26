@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kometenhalmstad</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<header classname="mainheader">
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="https://docs.google.com/viewerng/viewer?url=http://kometen-halmstad.se/onewebmedia/Matsedlar%25202020/meny%2520v48-49-9.pdf" target="_blank">
+                    Veckomeny
+                </a>
+            </li>
+            <div class="headerpic">
+                <div classname="fnxlogo">
+                <img src="/Untitled.jpg" alt="HeaderImage" /></div>
+            </div>
+            
+            <li class="nav-item"><a href="/login.html">Företag</a></li>
+        </ul>
+    </nav>
+
+</header>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;">Invalid username or password.</p>
+    </div>
+
+    <script>
+        const adminCredentials = {
+            username: "Kometen2025",
+            password: "123123"
+        };
+
+        document.getElementById("login-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === adminCredentials.username && password === adminCredentials.password) {
+                window.location.href = "order.html";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

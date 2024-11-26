@@ -1,0 +1,208 @@
+
+body {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #292929, #000000, #000000, #030303);
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+   
+
+}
+.h3{
+    color:whitesmoke
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+    justify-content: center;
+    align-items: center;
+    min-width: 50vh
+}
+
+.mainheader {
+    height: 100vh;
+    width: 50vh;
+}
+
+section {
+
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    width: 50vh;
+}
+.sectionbottom{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.HeaderImage2 {
+    margin-top: 3vh;
+    background-image: url('123.jpg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    Height: 35vh; /* Ensure the div has enough height */
+}
+
+.HeaderImage2 h1 {
+    margin: 0; /* Remove default margin for the h1 */
+    font-size: 3rem; /* Adjust the font size as needed */
+    color: #ffffff; /* Text color */
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.7); /* Fix text shadow */
+}
+.HeaderImage2 h2 {
+    margin: 0; /* Remove default margin for the h1 */
+    font-size: 2rem; /* Adjust the font size as needed */
+    text-shadow: 8px 8px 10px rgba(0, 0, 0, 0.7); /* Fix text shadow */
+}
+/* Navbar Styles */
+
+h1 {
+    color:whitesmoke
+}
+
+.navbar {
+    max-height: 21.1vh;
+}
+nav {
+    background: linear-gradient(to bottom, #000000, #000000, #000000, #292929);
+    padding: 10px;
+}
+.nav-item{
+    font-size: 24px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #f90;
+}
+
+.headerpic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerpic img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#weekly-menu {
+    font-family: Arial, sans-serif;
+    
+    width: 100%;
+    max-width: 400px; /* Optional: Limit width for better design */
+    text-align: center; /* Center text within the section */
+}
+
+#weekly-menu h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+#today-menu {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#menu-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu-items li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#menu-items li:last-child {
+    border-bottom: none;
+} 
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: #ddd;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+
+  .location-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button container */
+.location-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Hitta hit button styles */
+.btn-hitta-hit {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-hitta-hit:hover {
+    background-color: #218838; /* Darker green when hovered */
+}
+
+/* Map container */
+.map-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Optional: You can adjust the iframe height if needed */
+iframe {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
